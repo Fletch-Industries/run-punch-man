@@ -17,7 +17,7 @@ const Index = () => {
             
             {/* Main Headline - kept empty as in original */}
             <h1 className="text-4xl sm:text-5xl font-bold text-red-600 text-center mb-4">
-              Day {Math.floor((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
+              Day {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
             
             {/* Tagline */}
