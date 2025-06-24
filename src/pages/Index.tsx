@@ -23,8 +23,7 @@ const Index = () => {
             
             {/* Tagline */}
             <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed px-4">
-              We're not heroes, but through <span className="text-yellow-400 font-semibold">Jesus</span> and daily discipline, 
-              we become more than we ever dreamed.
+              Just a guy who's a <span className="text-yellow-400 font-semibold">Runner</span> for fun!
             </p>
             
             {/* CTA Buttons */}
