@@ -28,13 +28,21 @@ const Index = () => {
             </p>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            {/* <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Link to="/about" className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg tracking-wide">
                 DISCOVER MY STORY
               </Link>
               <Link to="/journal" className="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
                 READ DAILY JOURNAL
               </Link>
+            </div> */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+              <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg tracking-wide">
+                What's your R.E.D?
+              </a>
+              <a href="https://www.strava.com/clubs/1597734" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+                Join the Club!
+              </a>
             </div>
           </div>
         </div>
