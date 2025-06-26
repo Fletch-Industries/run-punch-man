@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface InstagramPost {
   shortcode: string;
@@ -40,18 +41,11 @@ const Media = () => {
       console.log("Fetching Instagram posts from edge function...");
       
       try {
-        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/fetch-instagram`, {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-          },
-        });
+        const { data, error } = await supabase.functions.invoke('fetch-instagram');
         
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        if (error) {
+          throw error;
         }
-        
-        const data = await response.json();
         
         if (data.success) {
           setInstagramPosts(data.posts);
@@ -90,12 +84,12 @@ const Media = () => {
     fetchInstagramPosts();
   }, [toast]);
 
-  const getCurrentInstagramPosts = () => {
+  const getCurrentInstagramPosts = (): InstagramPost[] => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     return instagramPosts.slice(startIndex, startIndex + itemsPerPage);
   };
 
-  const getCurrentStravaActivities = () => {
+  const getCurrentStravaActivities = (): string[] => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     return stravaActivities.slice(startIndex, startIndex + itemsPerPage);
   };
@@ -314,12 +308,12 @@ const Media = () => {
               </p>
             </div>
             <div className="p-6 bg-blue-50 rounded-lg border border-blue-200">
-              <h3 className="text-xl font-semibold text-blue-700 mb-4">🚀 Next Step</h3>
+              <h3 className="text-xl font-semibold text-blue-700 mb-4">🚀 Live & Working</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Deploy the edge function to Supabase to enable automatic Instagram content fetching.
+                The Instagram integration is now live and automatically fetching content from @run_punch_man.
               </p>
               <p className="text-xs text-gray-500">
-                No API keys required - the function handles everything automatically.
+                Posts are refreshed each time you visit the page.
               </p>
             </div>
           </div>
