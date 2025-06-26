@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
@@ -39,9 +40,11 @@ const Media = () => {
       console.log("Fetching Instagram posts from edge function...");
       
       try {
-        // Replace with your actual Supabase function URL
-        const response = await fetch('/api/fetch-instagram', {
+        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/fetch-instagram`, {
           method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          },
         });
         
         if (!response.ok) {
@@ -87,10 +90,14 @@ const Media = () => {
     fetchInstagramPosts();
   }, [toast]);
 
-  const getCurrentItems = () => {
-    const items = activeTab === 'instagram' ? instagramPosts : stravaActivities;
+  const getCurrentInstagramPosts = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
-    return items.slice(startIndex, startIndex + itemsPerPage);
+    return instagramPosts.slice(startIndex, startIndex + itemsPerPage);
+  };
+
+  const getCurrentStravaActivities = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return stravaActivities.slice(startIndex, startIndex + itemsPerPage);
   };
 
   const getTotalPages = () => {
@@ -170,7 +177,7 @@ const Media = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {getCurrentItems().map((post: InstagramPost, index) => (
+                  {getCurrentInstagramPosts().map((post, index) => (
                     <Card key={post.shortcode} className="overflow-hidden hover:shadow-lg transition-shadow">
                       <CardContent className="p-0">
                         <div className="aspect-square relative">
@@ -222,7 +229,7 @@ const Media = () => {
             </>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {getCurrentItems().map((activityId, index) => (
+              {getCurrentStravaActivities().map((activityId, index) => (
                 <Card key={index} className="overflow-hidden">
                   <CardContent className="p-0">
                     <div className="bg-gray-100 aspect-video flex items-center justify-center">
