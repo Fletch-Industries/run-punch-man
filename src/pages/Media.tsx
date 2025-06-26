@@ -10,16 +10,13 @@ import { supabase } from "@/integrations/supabase/client";
 
 interface InstagramPost {
   shortcode: string;
-  display_url?: string;
-  is_video?: boolean;
-  caption?: string;
-  timestamp?: number;
 }
 
 const Media = () => {
   const [activeTab, setActiveTab] = useState<'instagram' | 'strava'>('instagram');
   const [currentPage, setCurrentPage] = useState(1);
   const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
+  const [seenShortcodes, setSeenShortcodes] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
   const itemsPerPage = 6;
@@ -56,8 +53,13 @@ const Media = () => {
   const fetchInstagramPosts = async () => {
     setLoading(true);
     try {
+      console.log('Fetching Instagram posts with seen shortcodes:', seenShortcodes);
+      
       const { data, error } = await supabase.functions.invoke('fetch-instagram', {
-        body: { username: 'run_punch_man' }
+        body: { 
+          username: 'run_punch_man',
+          seen: seenShortcodes
+        }
       });
 
       if (error) {
@@ -69,26 +71,39 @@ const Media = () => {
         });
         
         // Fallback to sample posts
-        setInstagramPosts([
+        const fallbackPosts = [
           { shortcode: 'DLVBRRhxSp_' },
           { shortcode: 'DLRpQxRR8vX' },
           { shortcode: 'DLNyMwRxzKp' },
-        ]);
+        ];
+        setInstagramPosts(fallbackPosts);
+        setSeenShortcodes(fallbackPosts.map(p => p.shortcode));
       } else {
         console.log('Instagram posts data:', data);
         if (data && data.posts && data.posts.length > 0) {
-          setInstagramPosts(data.posts);
+          const newPosts = data.posts;
+          const newShortcodes = newPosts.map((p: InstagramPost) => p.shortcode);
+          
+          // Combine with existing posts, avoiding duplicates
+          const allPosts = [...newPosts, ...instagramPosts.filter(p => !newShortcodes.includes(p.shortcode))];
+          const allShortcodes = [...newShortcodes, ...seenShortcodes.filter(s => !newShortcodes.includes(s))];
+          
+          setInstagramPosts(allPosts);
+          setSeenShortcodes(allShortcodes);
+          
           toast({
             title: "Content Loaded",
-            description: `Loaded ${data.posts.length} Instagram posts`,
+            description: `Loaded ${newPosts.length} new Instagram posts`,
           });
         } else {
           // Fallback to sample posts if no posts found
-          setInstagramPosts([
+          const fallbackPosts = [
             { shortcode: 'DLVBRRhxSp_' },
             { shortcode: 'DLRpQxRR8vX' },
             { shortcode: 'DLNyMwRxzKp' },
-          ]);
+          ];
+          setInstagramPosts(fallbackPosts);
+          setSeenShortcodes(fallbackPosts.map(p => p.shortcode));
         }
       }
     } catch (error) {
@@ -100,11 +115,13 @@ const Media = () => {
       });
       
       // Fallback to sample posts
-      setInstagramPosts([
+      const fallbackPosts = [
         { shortcode: 'DLVBRRhxSp_' },
         { shortcode: 'DLRpQxRR8vX' },
         { shortcode: 'DLNyMwRxzKp' },
-      ]);
+      ];
+      setInstagramPosts(fallbackPosts);
+      setSeenShortcodes(fallbackPosts.map(p => p.shortcode));
     } finally {
       setLoading(false);
     }
@@ -426,7 +443,7 @@ const Media = () => {
             <div className="p-6 bg-green-50 rounded-lg border border-green-200">
               <h3 className="text-xl font-semibold text-green-700 mb-4">🔄 Live Scraping</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Posts are dynamically scraped from the Instagram profile on each load.
+                Posts are dynamically scraped from the Instagram profile using shortcode detection.
               </p>
               <p className="text-xs text-gray-500">
                 Click "Refresh Posts" to fetch the latest content from @run_punch_man.
