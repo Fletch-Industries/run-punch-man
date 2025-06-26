@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface InstagramPost {
   shortcode: string;
@@ -33,16 +34,6 @@ const Media = () => {
     "10234567895",
   ];
 
-  // Sample Instagram post shortcodes - these will be the actual posts displayed
-  const sampleInstagramPosts: InstagramPost[] = [
-    { shortcode: 'DLVBRRhxSp_' }, // This is from the example you provided
-    { shortcode: 'DLRpQxRR8vX' }, // Add more shortcodes as needed
-    { shortcode: 'DLNyMwRxzKp' },
-    { shortcode: 'DLKwQxRxFmN' },
-    { shortcode: 'DLHpMwRRzXv' },
-    { shortcode: 'DLEyQxRxNmK' },
-  ];
-
   useEffect(() => {
     // Load Instagram embed script
     const script = document.createElement('script');
@@ -50,17 +41,8 @@ const Media = () => {
     script.async = true;
     document.head.appendChild(script);
 
-    // Simulate loading and set sample posts
-    setLoading(true);
-    setTimeout(() => {
-      setInstagramPosts(sampleInstagramPosts);
-      setLoading(false);
-      
-      // Process Instagram embeds after content loads
-      if (window.instgrm && window.instgrm.Embeds) {
-        window.instgrm.Embeds.process();
-      }
-    }, 1000);
+    // Fetch Instagram posts from edge function
+    fetchInstagramPosts();
 
     return () => {
       // Cleanup script if component unmounts
@@ -70,6 +52,63 @@ const Media = () => {
       }
     };
   }, []);
+
+  const fetchInstagramPosts = async () => {
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('fetch-instagram', {
+        body: { username: 'run_punch_man' }
+      });
+
+      if (error) {
+        console.error('Error fetching Instagram posts:', error);
+        toast({
+          title: "Connection Error",
+          description: "Unable to load Instagram content. Showing sample posts instead.",
+          variant: "destructive",
+        });
+        
+        // Fallback to sample posts
+        setInstagramPosts([
+          { shortcode: 'DLVBRRhxSp_' },
+          { shortcode: 'DLRpQxRR8vX' },
+          { shortcode: 'DLNyMwRxzKp' },
+        ]);
+      } else {
+        console.log('Instagram posts data:', data);
+        if (data && data.posts && data.posts.length > 0) {
+          setInstagramPosts(data.posts);
+          toast({
+            title: "Content Loaded",
+            description: `Loaded ${data.posts.length} Instagram posts`,
+          });
+        } else {
+          // Fallback to sample posts if no posts found
+          setInstagramPosts([
+            { shortcode: 'DLVBRRhxSp_' },
+            { shortcode: 'DLRpQxRR8vX' },
+            { shortcode: 'DLNyMwRxzKp' },
+          ]);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to fetch Instagram posts:', error);
+      toast({
+        title: "Error",
+        description: "Failed to load Instagram content",
+        variant: "destructive",
+      });
+      
+      // Fallback to sample posts
+      setInstagramPosts([
+        { shortcode: 'DLVBRRhxSp_' },
+        { shortcode: 'DLRpQxRR8vX' },
+        { shortcode: 'DLNyMwRxzKp' },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Process Instagram embeds when posts change
   useEffect(() => {
@@ -146,6 +185,14 @@ const Media = () => {
             >
               🏃 Strava Activities
             </Button>
+            <Button
+              onClick={fetchInstagramPosts}
+              variant="outline"
+              className="px-6 py-3 font-semibold border-gray-300 text-gray-700 hover:bg-gray-50"
+              disabled={loading}
+            >
+              🔄 Refresh Posts
+            </Button>
           </div>
         </div>
       </section>
@@ -200,7 +247,6 @@ const Media = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {/* Instagram embed placeholder content */}
                             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                               <div style={{
                                 backgroundColor: '#F4F4F4',
@@ -240,7 +286,6 @@ const Media = () => {
                               margin: '0 auto 12px',
                               width: '50px'
                             }}>
-                              {/* Instagram icon SVG */}
                               <svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1">
                                 <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                   <g transform="translate(-511.000000, -20.000000)" fill="#000000">
@@ -376,24 +421,24 @@ const Media = () => {
       {/* Updated Instructions Section */}
       <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-navy-900 mb-6">Instagram Integration</h2>
+          <h2 className="text-3xl font-bold text-navy-900 mb-6">Dynamic Instagram Integration</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="p-6 bg-green-50 rounded-lg border border-green-200">
-              <h3 className="text-xl font-semibold text-green-700 mb-4">✅ Official Embeds</h3>
+              <h3 className="text-xl font-semibold text-green-700 mb-4">🔄 Live Scraping</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                Using Instagram's official embed system for reliable content display.
+                Posts are dynamically scraped from the Instagram profile on each load.
               </p>
               <p className="text-xs text-gray-500">
-                Real Instagram posts from @run_punch_man are embedded directly.
+                Click "Refresh Posts" to fetch the latest content from @run_punch_man.
               </p>
             </div>
             <div className="p-6 bg-blue-50 rounded-lg border border-blue-200">
-              <h3 className="text-xl font-semibold text-blue-700 mb-4">🔄 Easy Updates</h3>
+              <h3 className="text-xl font-semibold text-blue-700 mb-4">✅ Official Embeds</h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                To add new posts, simply update the shortcodes list in the code.
+                Each scraped shortcode is automatically converted to Instagram's official embed format.
               </p>
               <p className="text-xs text-gray-500">
-                Get shortcodes from Instagram post URLs (the part after /p/).
+                Ensures reliable display and full Instagram functionality.
               </p>
             </div>
           </div>
