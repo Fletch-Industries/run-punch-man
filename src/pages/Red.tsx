@@ -43,7 +43,7 @@ const Red = () => {
             quote: columns[5] || ''
           };
         })
-        .filter(entry => entry.date && entry.day && entry.reason); // Only include rows with date, day, and reason
+        .filter(entry => entry.date && entry.day && entry.reason && !isNaN(parseInt(entry.day))); // Only include rows with valid data
       
       // Sort by day number in descending order (most recent first)
       const sortedEntries = parsedEntries.sort((a, b) => parseInt(b.day) - parseInt(a.day));

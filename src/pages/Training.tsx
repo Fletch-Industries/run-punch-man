@@ -87,66 +87,55 @@ const Training = () => {
       <section className="bg-gradient-to-br from-navy-900 to-red-900 py-20">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Personal <span className="text-yellow-400">Training</span>
+            Train with <span className="text-yellow-400">Run Punch Man</span>
           </h1>
           <p className="text-xl text-gray-200 leading-relaxed mb-4">
-            Level up your fitness with faith-focused training
+            Break your limits. Become too strong. 
           </p>
-          <div className="bg-yellow-400 text-navy-900 px-6 py-3 rounded-lg font-bold text-lg inline-block">
-            $40 for 30 minutes
+          <div className="bg-yellow-400 text-navy-900 px-8 py-4 rounded-lg font-bold text-xl inline-block">
+            Train Without Limits
           </div>
+          <p className="text-sm text-gray-300 mt-4">$40 for 30 minutes</p>
         </div>
       </section>
 
-      {/* Booking Section */}
+      {/* Training Philosophy */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Training Info */}
-          <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <h2 className="text-3xl font-bold text-navy-900 mb-6 text-center">What You Get</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl">💪</span>
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">Accountability Partner</h3>
-                <p className="text-gray-600 text-sm">Someone who shows up every day and expects the same from you</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-navy-900 text-2xl">🏃‍♂️</span>
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">Real Experience</h3>
-                <p className="text-gray-600 text-sm">Training from someone who runs 5K daily and never takes a day off</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl">🎯</span>
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">No-Excuse Mentality</h3>
-                <p className="text-gray-600 text-sm">Learn to overcome the voice that says "not today"</p>
-              </div>
+          <div className="bg-gradient-to-br from-red-600 to-navy-900 rounded-xl shadow-lg p-8 text-white mb-12">
+            <h3 className="text-3xl font-bold mb-6 text-center">Breaking Your Limits</h3>
+            <p className="text-center text-lg leading-relaxed mb-6">
+              I'm just a guy who runs 5K every single day. No excuses, no days off. 
+              Like Saitama's training - simple, consistent, relentless. I'll help you build the mental strength 
+              to push past what you think is possible.
+            </p>
+            <div className="text-center">
+              <p className="text-yellow-400 font-bold mb-2">Virtual Sessions • 7+ Days Advance Booking</p>
+              <p className="text-sm text-gray-200">Come ready to exceed your limits</p>
             </div>
           </div>
-          
-          <div className="bg-gradient-to-br from-red-600 to-navy-900 rounded-xl shadow-lg p-8 text-white mb-12">
-            <h3 className="text-2xl font-bold mb-4 text-center">Training Philosophy</h3>
-            <p className="text-center text-lg leading-relaxed">
-              I'm not a certified trainer, but I am someone who has run over 500 consecutive days and learned 
-              what it takes to never miss. I'll share what works for building unbreakable consistency and 
-              help you develop your own "never take a day off" mindset.
-            </p>
-            <div className="mt-6 text-center">
-              <p className="text-yellow-400 font-bold">Requirements:</p>
-              <p className="text-sm">• Must book 7 days in advance • Virtual sessions only • Come ready to commit</p>
+
+          {/* Calendar Section */}
+          <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold text-navy-900 mb-6 text-center">Choose Your Training Day</h2>
+            <div className="flex justify-center mb-6">
+              <Calendar
+                mode="single"
+                selected={selectedDate}
+                onSelect={handleDateSelect}
+                disabled={(date) => {
+                  const sevenDaysFromNow = new Date();
+                  sevenDaysFromNow.setDate(sevenDaysFromNow.getDate() + 7);
+                  return date < sevenDaysFromNow;
+                }}
+                className="rounded-md border border-gray-300 p-3"
+              />
             </div>
           </div>
 
           {/* Booking Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-navy-900 mb-6">Book Your Session</h2>
+          <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold text-navy-900 mb-6">Complete Your Booking</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -192,22 +181,6 @@ const Training = () => {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Preferred Date (7+ days in advance)
-                  </label>
-                  <Calendar
-                    mode="single"
-                    selected={selectedDate}
-                    onSelect={handleDateSelect}
-                    disabled={(date) => {
-                      const sevenDaysFromNow = new Date();
-                      sevenDaysFromNow.setDate(sevenDaysFromNow.getDate() + 7);
-                      return date < sevenDaysFromNow;
-                    }}
-                    className="rounded-md border border-gray-300 p-3"
-                  />
-                </div>
 
                 <div>
                   <label htmlFor="preferredTime" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -249,10 +222,40 @@ const Training = () => {
                   disabled={loading}
                   className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white py-4 rounded-lg font-bold text-lg transition-all duration-200 transform hover:scale-105"
                 >
-                  {loading ? 'Sending Request...' : 'Book Training Session'}
+                  {loading ? 'Sending Request...' : 'Train Without Limits'}
                 </button>
               </form>
             </div>
+
+          {/* What You Get */}
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-6 text-center">What You Get</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">💪</span>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">Unbreakable Consistency</h3>
+                <p className="text-gray-600 text-sm">Learn the mental game of never missing a day</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-navy-900 text-2xl">🏃‍♂️</span>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">500+ Day Streak</h3>
+                <p className="text-gray-600 text-sm">Training from someone who never takes a day off</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">⚡</span>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">Break Your Limits</h3>
+                <p className="text-gray-600 text-sm">Push past what you thought was possible</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -110,21 +110,19 @@ const Contact = () => {
       <section className="bg-gradient-to-br from-navy-900 to-red-900 py-20">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Get in <span className="text-yellow-400">Touch</span>
+            Send a <span className="text-yellow-400">Message</span>
           </h1>
           <p className="text-xl text-gray-200 leading-relaxed">
-            Have questions about faith, fitness, or the RunPunchMan journey? Let's connect!
+            Talk is boring... but I'm bored anyway, so let's chat!
           </p>
         </div>
       </section>
 
       {/* Contact Form Section */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-navy-900 mb-6">Send a Message</h2>
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <h2 className="text-3xl font-bold text-navy-900 mb-6 text-center">What's on your mind?</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -203,50 +201,6 @@ const Contact = () => {
                 </button>
               </form>
             </div>
-
-            {/* Contact Info & Newsletter */}
-            <div className="space-y-8">
-              {/* Contact Info */}
-              <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-navy-900 mb-6">Let's Connect</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
-                      <span className="text-white">📧</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-700">Email</p>
-                      <p className="text-gray-600">hello@runpunchman.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <span className="text-navy-900">📱</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-700">Social Media</p>
-                      <p className="text-gray-600">@RunPunchMan on all platforms</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-navy-900 rounded-full flex items-center justify-center">
-                      <span className="text-white">⏰</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-700">Response Time</p>
-                      <p className="text-gray-600">Usually within 24-48 hours</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Newsletter Signup */}
-              <NewsletterSignup />
-
-            </div>
-          </div>
         </div>
       </section>
 
