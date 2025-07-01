@@ -57,13 +57,14 @@ const Index = () => {
         
       </section>
 
-      {/* Mission Statement Section */}
+      {/* R.E.D. Mission Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 px-4">
-              The <span className="text-red-600">RunPunchMan</span> Mission
+              What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
+            <p className="text-lg text-gray-600 mb-6 sm:mb-8">Break through your limits. Every. Single. Day.</p>
             <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6 sm:mb-8"></div>
           </div>
           
@@ -75,7 +76,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Reason to Run</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                Every day starts with a purpose that drives me forward.
+                Find your purpose that drives you forward, no matter what.
               </p>
             </div>
             
@@ -86,7 +87,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Excuse to Ignore</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                Acknowledge the voice that wants to quit, then choose to show up anyway.
+                Identify the excuses trying to stop you, then crush them completely.
               </p>
             </div>
             
@@ -97,7 +98,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Difference About Today</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                What made today unique and worth celebrating in the journey.
+                Celebrate what made today's effort unique and unstoppable.
               </p>
             </div>
           </div>
@@ -108,20 +109,20 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-red-600 to-navy-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-            Ready to Start Your Journey?
+            Become Too Strong.
           </h2>
           <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8 leading-relaxed">
-            Join me in discovering what it means to train daily and live boldly through Christ.
+            Break through your limits. Every. Single. Day.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-500 text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              INSTAGRAM
-            </a>
-            <a href="https://www.facebook.com/runpunchmanofficial/" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              FACEBOOK
-            </a>
-            <a href="https://www.strava.com/clubs/1597734" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              STRAVA
+            <Link to="/red" className="bg-yellow-400 hover:bg-yellow-500 text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+              GET DAILY R.E.D.
+            </Link>
+            <Link to="/training" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+              TRAIN WITHOUT LIMITS
+            </Link>
+            <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+              JOIN THE CLUB
             </a>
           </div>
         </div>
