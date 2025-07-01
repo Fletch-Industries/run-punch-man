@@ -27,7 +27,7 @@ const Red = () => {
       if (!response.ok) throw new Error('Failed to fetch sheet data');
       
       const csvText = await response.text();
-      const rows = csvText.split('\n').slice(6); // Start from row 7 (index 6)
+      const rows = csvText.split('\n').slice(5); // Start from row 6 (index 5)
       
       const parsedEntries: RedEntry[] = rows
         .filter(row => row.trim() && !row.startsWith(',,,,,')) // Filter empty rows
@@ -74,9 +74,27 @@ const Red = () => {
           <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
             <strong>R</strong>eason to run, <strong>E</strong>xcuse to ignore, <strong>D</strong>ifference about today
           </p>
-          <p className="text-lg text-gray-300 mt-4">
-            Track every day's journey with accountability, humor, and Saitama-style wisdom
-          </p>
+          <div className="text-lg text-gray-300 mt-6 space-y-4">
+            <p>Oh, you commented RED? You must be serious!</p>
+            <p>Listen up.</p>
+            <div className="text-left max-w-md mx-auto">
+              <p><strong>R.E.D. means:</strong></p>
+              <p><strong>R</strong> – Reason you Ran</p>
+              <p><strong>E</strong> – Excuse you Ignored</p>
+              <p><strong>D</strong> – Difference about Today</p>
+            </div>
+            <p className="mt-4">
+              Every day I share the reason I decided to show up, acknowledge the excuse that almost took me out, and what made today stand out from the others.
+            </p>
+            <a 
+              href="https://www.instagram.com/run_punch_man/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block mt-6 bg-yellow-400 hover:bg-yellow-500 text-navy-900 px-6 py-3 rounded-lg font-bold transition-colors"
+            >
+              What's your R.E.D. today? 👊
+            </a>
+          </div>
         </div>
       </section>
 
@@ -123,7 +141,7 @@ const Red = () => {
                       {entry.reason && (
                         <div className="mb-3">
                           <h4 className="text-xs font-semibold text-green-700 mb-1 flex items-center">
-                            ✅ REASON TO RUN
+                            🏃‍♂️ REASON TO RUN
                           </h4>
                           <p className="text-sm text-gray-700 leading-tight">{entry.reason}</p>
                         </div>
@@ -148,7 +166,7 @@ const Red = () => {
                       )}
 
                       {entry.quote && (
-                        <div className="p-2 rounded border-l-2 border-gray-400">
+                        <div className="mb-3">
                           <h4 className="text-xs font-semibold text-gray-700 mb-1">
                             😐 SAITAMA SAYS
                           </h4>

@@ -3,6 +3,61 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 
+const NewsletterSignup = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const { supabase } = await import("@/integrations/supabase/client");
+      const { error } = await supabase.functions.invoke('newsletter-signup', {
+        body: { email }
+      });
+
+      if (error) throw error;
+
+      alert("Successfully subscribed! You'll receive daily R.E.D. at noon PST.");
+      setEmail("");
+    } catch (error: any) {
+      alert("Failed to subscribe. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="bg-gradient-to-br from-navy-900 to-red-900 rounded-xl shadow-lg p-8 text-white">
+      <h3 className="text-2xl font-bold mb-4">Daily R.E.D. Delivery</h3>
+      <p className="text-gray-200 mb-6 leading-relaxed">
+        Get my daily R.E.D. delivered to your inbox at noon PST. Join the journey of accountability and growth!
+      </p>
+      <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          className="w-full px-4 py-3 rounded-lg text-navy-900 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          required
+        />
+        <button 
+          type="submit"
+          disabled={loading}
+          className="w-full bg-yellow-400 hover:bg-yellow-500 disabled:bg-gray-400 text-navy-900 py-3 rounded-lg font-bold transition-colors"
+        >
+          {loading ? 'Subscribing...' : 'Subscribe Now'}
+        </button>
+      </form>
+      <p className="text-sm text-gray-300 mt-4">
+        Join the R.E.D. community. Unsubscribe anytime.
+      </p>
+    </div>
+  );
+};
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -19,10 +74,32 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission here
+    setLoading(true);
+
+    try {
+      const { supabase } = await import("@/integrations/supabase/client");
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      alert("Message sent successfully! I'll get back to you within 24-48 hours.");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+    } catch (error: any) {
+      alert("Failed to send message. Please try again or email me directly at josephmeeko@gmail.com");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -119,9 +196,10 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-bold text-lg transition-all duration-200 transform hover:scale-105"
+                  disabled={loading}
+                  className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white py-4 rounded-lg font-bold text-lg transition-all duration-200 transform hover:scale-105"
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
@@ -165,25 +243,7 @@ const Contact = () => {
               </div>
 
               {/* Newsletter Signup */}
-              <div className="bg-gradient-to-br from-navy-900 to-red-900 rounded-xl shadow-lg p-8 text-white">
-                <h3 className="text-2xl font-bold mb-4">Weekly Inspiration</h3>
-                <p className="text-gray-200 mb-6 leading-relaxed">
-                  Get weekly devotionals, training tips, and behind-the-scenes content delivered to your inbox.
-                </p>
-                <div className="space-y-4">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full px-4 py-3 rounded-lg text-navy-900 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                  />
-                  <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-navy-900 py-3 rounded-lg font-bold transition-colors">
-                    Subscribe Now
-                  </button>
-                </div>
-                <p className="text-sm text-gray-300 mt-4">
-                  Join 1,000+ others on the journey. Unsubscribe anytime.
-                </p>
-              </div>
+              <NewsletterSignup />
 
               {/* FAQ Preview */}
               <div className="bg-white rounded-xl shadow-lg p-8">
