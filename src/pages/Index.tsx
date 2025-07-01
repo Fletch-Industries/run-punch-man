@@ -35,11 +35,17 @@ const Index = () => {
               </Link>
             </div> */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-              <Link to="/red" className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg tracking-wide">
-                What's your R.E.D?
-              </Link>
-              <a href="https://www.strava.com/clubs/1597734" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-                Join the Club!
+              <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                Instagram
+              </a>
+              <a href="https://www.facebook.com/runpunchmanofficial/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Facebook
+              </a>
+              <a href="https://www.strava.com/clubs/1597734" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.599h4.172L10.463 0l-7 13.828h4.172"/></svg>
+                Strava
               </a>
             </div>
           </div>
@@ -62,39 +68,36 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {/* Faith */}
+            {/* Reason */}
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
-              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">✝️</span>
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl text-white">🏃‍♂️</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Faith-Centered</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Reason to Run</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                Every step, every rep, every day begins and ends with Jesus. 
-                Our strength comes from Him who strengthens us.
+                Every day starts with a purpose that drives me forward.
               </p>
             </div>
             
-            {/* Fitness */}
+            {/* Excuse */}
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
-              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-navy-900">💪</span>
+              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl text-white">🚫</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Physical Excellence</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Excuse to Ignore</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                Our bodies are temples. We honor God through discipline, 
-                consistency, and pushing beyond our limits.
+                Acknowledge the voice that wants to quit, then choose to show up anyway.
               </p>
             </div>
             
-            {/* Discipline */}
+            {/* Difference */}
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
-              <div className="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">🎯</span>
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl text-white">⚡</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Daily Discipline</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Difference About Today</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
-                Small, consistent actions compound into extraordinary results. 
-                Every day is a choice to become better.
+                What made today unique and worth celebrating in the journey.
               </p>
             </div>
           </div>

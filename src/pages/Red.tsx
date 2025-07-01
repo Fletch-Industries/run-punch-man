@@ -74,26 +74,30 @@ const Red = () => {
           <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
             <strong>R</strong>eason to run, <strong>E</strong>xcuse to ignore, <strong>D</strong>ifference about today
           </p>
-          <div className="text-lg text-gray-300 mt-6 space-y-4">
-            <p>Oh, you commented RED? You must be serious!</p>
-            <p>Listen up.</p>
-            <div className="text-left max-w-md mx-auto">
-              <p><strong>R.E.D. means:</strong></p>
-              <p><strong>R</strong> – Reason you Ran</p>
-              <p><strong>E</strong> – Excuse you Ignored</p>
-              <p><strong>D</strong> – Difference about Today</p>
-            </div>
-            <p className="mt-4">
-              Every day I share the reason I decided to show up, acknowledge the excuse that almost took me out, and what made today stand out from the others.
+          <p className="text-lg text-gray-200 mt-6 mb-8 max-w-2xl mx-auto">
+            Every day I share the reason I decided to show up, acknowledge the excuse that almost took me out, and what made today stand out from the others.
+          </p>
+          
+          {/* Newsletter Signup */}
+          <div className="bg-white p-6 rounded-xl max-w-md mx-auto">
+            <h3 className="text-xl font-bold text-navy-900 mb-4 text-center">Get the Daily R.E.D.</h3>
+            <form className="space-y-4">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                required
+              />
+              <button 
+                type="submit"
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold transition-colors"
+              >
+                Subscribe Now 👊
+              </button>
+            </form>
+            <p className="text-sm text-gray-500 mt-3 text-center">
+              Get daily R.E.D. delivered to your inbox at noon PST
             </p>
-            <a 
-              href="https://www.instagram.com/run_punch_man/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block mt-6 bg-yellow-400 hover:bg-yellow-500 text-navy-900 px-6 py-3 rounded-lg font-bold transition-colors"
-            >
-              What's your R.E.D. today? 👊
-            </a>
           </div>
         </div>
       </section>

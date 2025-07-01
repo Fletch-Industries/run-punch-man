@@ -100,57 +100,53 @@ const Training = () => {
 
       {/* Booking Section */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Training Info */}
-            <div className="space-y-8">
-              <div className="bg-white rounded-xl shadow-lg p-8">
-                <h2 className="text-3xl font-bold text-navy-900 mb-6">What You Get</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white text-sm">💪</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">Personalized Workout Plan</h3>
-                      <p className="text-gray-600">Tailored to your fitness level and goals</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-navy-900 text-sm">✝️</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">Faith-Centered Approach</h3>
-                      <p className="text-gray-600">Integrating spiritual discipline with physical training</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-navy-900 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white text-sm">🎯</span>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">One-on-One Attention</h3>
-                      <p className="text-gray-600">Focused coaching for maximum results</p>
-                    </div>
-                  </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Training Info */}
+          <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 className="text-3xl font-bold text-navy-900 mb-6 text-center">What You Get</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">💪</span>
                 </div>
+                <h3 className="font-bold text-gray-900 mb-2">Accountability Partner</h3>
+                <p className="text-gray-600 text-sm">Someone who shows up every day and expects the same from you</p>
               </div>
-
-              <div className="bg-gradient-to-br from-red-600 to-navy-900 rounded-xl shadow-lg p-8 text-white">
-                <h3 className="text-2xl font-bold mb-4">Requirements</h3>
-                <ul className="space-y-2">
-                  <li>• Bookings must be made 7 days in advance</li>
-                  <li>• Virtual sessions via video call</li>
-                  <li>• Have your workout space ready</li>
-                  <li>• Come with an open heart and mind</li>
-                </ul>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-navy-900 text-2xl">🏃‍♂️</span>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">Real Experience</h3>
+                <p className="text-gray-600 text-sm">Training from someone who runs 5K daily and never takes a day off</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">🎯</span>
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">No-Excuse Mentality</h3>
+                <p className="text-gray-600 text-sm">Learn to overcome the voice that says "not today"</p>
               </div>
             </div>
+          </div>
+          
+          <div className="bg-gradient-to-br from-red-600 to-navy-900 rounded-xl shadow-lg p-8 text-white mb-12">
+            <h3 className="text-2xl font-bold mb-4 text-center">Training Philosophy</h3>
+            <p className="text-center text-lg leading-relaxed">
+              I'm not a certified trainer, but I am someone who has run over 500 consecutive days and learned 
+              what it takes to never miss. I'll share what works for building unbreakable consistency and 
+              help you develop your own "never take a day off" mindset.
+            </p>
+            <div className="mt-6 text-center">
+              <p className="text-yellow-400 font-bold">Requirements:</p>
+              <p className="text-sm">• Must book 7 days in advance • Virtual sessions only • Come ready to commit</p>
+            </div>
+          </div>
 
-            {/* Booking Form */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-3xl font-bold text-navy-900 mb-6">Book Your Session</h2>
+          {/* Booking Form */}
+          <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-navy-900 mb-6">Book Your Session</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -257,7 +253,6 @@ const Training = () => {
                 </button>
               </form>
             </div>
-          </div>
         </div>
       </section>
 

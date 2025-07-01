@@ -245,24 +245,6 @@ const Contact = () => {
               {/* Newsletter Signup */}
               <NewsletterSignup />
 
-              {/* FAQ Preview */}
-              <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold text-navy-900 mb-6">Common Questions</h3>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-gray-700 mb-1">How did you start combining faith and fitness?</h4>
-                    <p className="text-gray-600 text-sm">It started with realizing that physical discipline and spiritual discipline go hand in hand...</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-700 mb-1">What's your daily routine like?</h4>
-                    <p className="text-gray-600 text-sm">Every morning begins with Scripture and prayer, followed by physical training...</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-700 mb-1">Do you offer personal training?</h4>
-                    <p className="text-gray-600 text-sm">Currently focusing on online inspiration and community building...</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
