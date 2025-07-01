@@ -27,7 +27,7 @@ const Red = () => {
       if (!response.ok) throw new Error('Failed to fetch sheet data');
       
       const csvText = await response.text();
-      const rows = csvText.split('\n').slice(5); // Start from row 6 (index 5)
+      const rows = csvText.split('\n').slice(6); // Start from row 7 (index 6)
       
       const parsedEntries: RedEntry[] = rows
         .filter(row => row.trim() && !row.startsWith(',,,,,')) // Filter empty rows
@@ -43,9 +43,11 @@ const Red = () => {
             quote: columns[5] || ''
           };
         })
-        .filter(entry => entry.date && entry.day); // Only include rows with date and day
+        .filter(entry => entry.date && entry.day && entry.reason); // Only include rows with date, day, and reason
       
-      setEntries(parsedEntries);
+      // Sort by day number in descending order (most recent first)
+      const sortedEntries = parsedEntries.sort((a, b) => parseInt(b.day) - parseInt(a.day));
+      setEntries(sortedEntries);
       setError(null);
     } catch (err) {
       console.error('Error fetching sheet data:', err);
@@ -102,17 +104,6 @@ const Red = () => {
 
           {!loading && !error && (
             <>
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-navy-900 mb-2">
-                  {entries.length} Days of R.E.D.
-                </h2>
-                <button 
-                  onClick={fetchGoogleSheetData}
-                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors text-sm"
-                >
-                  Refresh Data
-                </button>
-              </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {entries.map((entry, index) => (
@@ -132,7 +123,7 @@ const Red = () => {
                       {entry.reason && (
                         <div className="mb-3">
                           <h4 className="text-xs font-semibold text-green-700 mb-1 flex items-center">
-                            💪 REASON TO RUN
+                            ✅ REASON TO RUN
                           </h4>
                           <p className="text-sm text-gray-700 leading-tight">{entry.reason}</p>
                         </div>
@@ -150,18 +141,18 @@ const Red = () => {
                       {entry.difference && (
                         <div className="mb-3">
                           <h4 className="text-xs font-semibold text-blue-700 mb-1 flex items-center">
-                            ⚡ DIFFERENCE TODAY
+                            ⚡ DIFFERENCE ABOUT TODAY
                           </h4>
                           <p className="text-sm text-gray-700 leading-tight">{entry.difference}</p>
                         </div>
                       )}
 
                       {entry.quote && (
-                        <div className="bg-yellow-50 p-2 rounded border-l-2 border-yellow-400">
-                          <h4 className="text-xs font-semibold text-yellow-700 mb-1">
-                            🥊 SAITAMA SAYS
+                        <div className="p-2 rounded border-l-2 border-gray-400">
+                          <h4 className="text-xs font-semibold text-gray-700 mb-1">
+                            😐 SAITAMA SAYS
                           </h4>
-                          <p className="text-sm text-yellow-800 italic leading-tight">"{entry.quote}"</p>
+                          <p className="text-sm text-gray-800 italic leading-tight">"{entry.quote}"</p>
                         </div>
                       )}
                     </CardContent>

@@ -35,9 +35,9 @@ const Index = () => {
               </Link>
             </div> */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-              <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg tracking-wide">
+              <Link to="/red" className="bg-red-600 hover:bg-red-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg tracking-wide">
                 What's your R.E.D?
-              </a>
+              </Link>
               <a href="https://www.strava.com/clubs/1597734" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
                 Join the Club!
               </a>
@@ -111,12 +111,15 @@ const Index = () => {
             Join me in discovering what it means to train daily and live boldly through Christ.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Link to="/scripture" className="bg-yellow-400 hover:bg-yellow-500 text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              DAILY SCRIPTURE
-            </Link>
-            <Link to="/contact" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              GET WEEKLY INSPIRATION
-            </Link>
+            <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-500 text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+              INSTAGRAM
+            </a>
+            <a href="https://www.facebook.com/runpunchmanofficial/" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+              FACEBOOK
+            </a>
+            <a href="https://www.strava.com/clubs/1597734" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-superhero font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+              STRAVA
+            </a>
           </div>
         </div>
       </section>
