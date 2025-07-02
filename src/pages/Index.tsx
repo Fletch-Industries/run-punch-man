@@ -41,13 +41,13 @@ const Index = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 px-4">
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-6 sm:mb-8">Every day begins with a Reason, an Excuse, & a Difference.</p>
+            <p className="text-lg text-gray-600 mb-6 sm:mb-8">Reason. Excuse. Difference.</p>
             <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6 sm:mb-8"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
               <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">👊</span>
+                <span className="text-2xl text-white">✅</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Reason to Run</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
@@ -84,13 +84,13 @@ const Index = () => {
             Are you ready to break through your limits?
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Link to="/red" className="bg-yellow-400 hover:bg-yellow-500 text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
               GET DAILY R.E.D.
             </Link>
-            <Link to="/training" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+            <Link to="/training" className="bg-yellow-400 hover:bg-yellow-300 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
               TRAIN WITHOUT LIMITS
             </Link>
-            <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+            <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-white hover:bg-gray-100 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
               JOIN THE CLUB
             </a>
           </div>

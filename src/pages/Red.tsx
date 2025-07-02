@@ -145,7 +145,7 @@ const Red = () => {
                       {entry.reason && (
                         <div className="mb-3">
                           <h4 className="text-xs font-semibold text-green-700 mb-1 flex items-center">
-                            👊 REASON TO RUN
+                            ✅ REASON TO RUN
                           </h4>
                           <p className="text-sm text-gray-700 leading-tight">{entry.reason}</p>
                         </div>
