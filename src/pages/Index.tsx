@@ -40,7 +40,7 @@ const Index = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 px-4">
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-6 sm:mb-8">Break through your limits. Every. Single. Day.</p>
+            <p className="text-lg text-gray-600 mb-6 sm:mb-8">Know your Reason, Own your Excuse, & notice the Difference.</p>
             <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6 sm:mb-8"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -80,7 +80,7 @@ const Index = () => {
             Become Too Strong.
           </h2>
           <p className="text-lg sm:text-xl text-gray-200 mb-6 sm:mb-8 leading-relaxed">
-            Break through your limits. Every. Single. Day.
+            Are you ready to break through your limits?
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link to="/red" className="bg-yellow-400 hover:bg-yellow-500 text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
