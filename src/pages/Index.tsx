@@ -12,7 +12,6 @@ const Index = () => {
               <img src="/lovable-uploads/636C1957-DCC2-40EE-9232-49D8B08B663E.png" alt="RunPunchMan Logo - Train Daily. Live Boldly." className="w-full h-full drop-shadow-2xl object-cover" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
-              {/* Day <span className="text-red-600 font-semibold">{Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}</span> */}
               DAY {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-yellow-300 font-bold mb-6 sm:mb-8">
