@@ -42,7 +42,7 @@ const Index = () => {
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-bold mb-6 sm:mb-8">
-              <span className="text-red-600">👊 Reason</span>. <span className="text-white bg-black px-1 rounded">🚫 Excuse</span>. <span className="text-yellow-400">💥 Difference</span>.
+              <span className="text-red-600">Reason</span>. <span className="text-navy-900">Excuse</span>. <span className="text-yellow-400">Difference</span>.
             </p>
           </div>
 
