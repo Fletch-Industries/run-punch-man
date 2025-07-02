@@ -11,8 +11,8 @@ const Index = () => {
             <div className="mx-auto w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
               <img src="/lovable-uploads/636C1957-DCC2-40EE-9232-49D8B08B663E.png" alt="RunPunchMan Logo - Train Daily. Live Boldly." className="w-full h-full drop-shadow-2xl object-cover" />
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-200 text-center mb-4">
-              Day {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
+              DAY {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
             <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide mb-6 sm:mb-8 inline-block">
              GET TODAY'S R.E.D.
