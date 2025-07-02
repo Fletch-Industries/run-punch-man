@@ -12,13 +12,13 @@ const Index = () => {
               <img src="/lovable-uploads/636C1957-DCC2-40EE-9232-49D8B08B663E.png" alt="RunPunchMan Logo - Train Daily. Live Boldly." className="w-full h-full drop-shadow-2xl object-cover" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
-              DAY {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
+              Day <span className="text-yellow-300">{Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}</span>
             </h1>
-            <p className="text-xl sm:text-xxl font-bold mb-6 sm:mb-8">
+            <p className="text-xl sm:text-xxl font-bold mb-6 sm:mb-8  text-yellow-300">
               EVERY. SINGLE. DAY.
             </p>
             <div className="space-y-4 sm:space-y-6">
-              <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide block">
+              <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide block">
                 JOIN THE CLUB
               </a>
             </div>
