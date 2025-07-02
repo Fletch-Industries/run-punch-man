@@ -14,7 +14,7 @@ const Index = () => {
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
               Day <span className="text-yellow-300">{Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}</span>
             </h1>
-            <p className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8  text-yellow-300">
+            <p className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8  text-yellow-300">
               EVERY. SINGLE. DAY.
             </p>
             <div className="flex justify-center">
@@ -42,8 +42,8 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 px-4">
-              What's Your <span className="text-red-600">R.E.D.</span>?
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 mb-4 sm:mb-6 px-4">
+              What's Your R.E.D.?
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-red-600 font-bold mb-6 sm:mb-8">
               Reason. Excuse. Difference.
