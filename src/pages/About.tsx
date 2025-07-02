@@ -14,7 +14,7 @@ const About = () => {
             My <span className="text-yellow-400">Story</span>
           </h1>
           <p className="text-xl text-gray-200 leading-relaxed">
-            How faith and fitness collided to create something powerful
+            How simple training became unbreakable strength. Every. Single. Day.
           </p>
         </div>
       </section>
@@ -29,13 +29,13 @@ const About = () => {
                 <h2 className="text-3xl font-bold text-navy-900 mb-6">Meet Run Punch Man</h2>
                 <p className="text-gray-700 leading-relaxed mb-6">
                   My name is Run Punch Man and I run a 5k every day with my dog Juniper. I also do 100 situps, 
-                  pushups, and squats every single day. Every day I post my R.E.D. to inspire myself and others 
-                  to keep at their good habits - and never take a day off.
+                  pushups, and squats every single day. Like Saitama's simple training, consistency is everything.
+                  Every day I post my R.E.D. to inspire myself and others to never take a day off.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  What started as a simple commitment to daily discipline has evolved into something much bigger. 
-                  It's about showing up consistently, acknowledging the excuses that try to derail us, and finding 
-                  something unique to celebrate about each day's effort.
+                  What started as simple daily training has made me too strong to quit. I break through my limits 
+                  every single day. It's about showing up relentlessly, crushing excuses, and becoming unstoppable 
+                  through pure consistency.
                 </p>
               </div>
               <div className="flex items-center justify-center">
@@ -89,26 +89,25 @@ const About = () => {
             </div>
 
             <div className="bg-gradient-to-r from-red-600 to-navy-900 p-8 rounded-xl text-white mb-12">
-              <h2 className="text-3xl font-bold mb-6">The Never Miss Philosophy</h2>
+              <h2 className="text-3xl font-bold mb-6">Become Too Strong</h2>
               <p className="text-lg leading-relaxed mb-6">
-                "Never take a day off" isn't about perfection - it's about showing up. Some days my 5K 
-                is fast and feels amazing. Other days it's slow and every step is a battle. But the 
-                commitment remains the same: show up, do the work, and share the truth about what it took.
+                "Never take a day off" means becoming too strong to quit. Some days my 5K is fast and 
+                explosive. Other days it's a grind and every step breaks through another limit. But the 
+                commitment never wavers: show up, exceed yesterday, become unstoppable.
               </p>
               <p className="text-lg leading-relaxed">
-                This philosophy extends beyond fitness. It's about building character through daily 
-                disciplines, being honest about our struggles, and inspiring others through authentic 
-                vulnerability rather than highlight reels.
+                This isn't just fitness - it's forging an unbreakable mind. Every day builds the strength 
+                to push past what you thought was possible. Simple training. Relentless consistency. 
+                Break through your limits. Every. Single. Day.
               </p>
             </div>
 
             <div className="text-center">
               <h2 className="text-3xl font-bold text-navy-900 mb-6">Join the Movement</h2>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                My mission is to inspire others to commit to their own version of "never miss a day." 
-                Whether it's running, writing, praying, or any positive habit - the power is in the consistency. 
-                Follow along for daily R.E.D. posts and see what happens when you stop making excuses and 
-                start making progress.
+                My mission is to inspire others to become too strong to quit. Whether it's running, training, 
+                or any habit that builds you - the power comes from never taking a day off. Follow along for 
+                daily R.E.D. posts and discover what happens when you break through your limits. Every. Single. Day.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">

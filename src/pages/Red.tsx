@@ -75,7 +75,7 @@ const Red = () => {
             <strong>R</strong>eason to run, <strong>E</strong>xcuse to ignore, <strong>D</strong>ifference about today
           </p>
           <p className="text-lg text-gray-200 mt-6 mb-8 max-w-2xl mx-auto">
-            Every day I share the reason I decided to show up, acknowledge the excuse that almost took me out, and what made today stand out from the others.
+            Every day I break through my limits. I share the reason that drives me forward, crush the excuse trying to stop me, and celebrate what made today unstoppable.
           </p>
           
           {/* Newsletter Signup */}
