@@ -15,7 +15,7 @@ const Index = () => {
               {/* Day <span className="text-red-600 font-semibold">{Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}</span> */}
               Day {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-yellow-400 max-w-3xl mx-auto leading-relaxed px-4">
               {/* Just a guy who's a <span className="text-yellow-400 font-semibold">Runner</span> for fun! */}
               Just a guy who's a runner for fun
             </p>
