@@ -16,7 +16,7 @@ const Index = () => {
               Day {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-yellow-300 font-bold mb-6 sm:mb-8">
-              Reason. Excuse. Difference.
+              Every. Single. Day.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg">
@@ -41,7 +41,9 @@ const Index = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 px-4">
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-6 sm:mb-8">Reason. Excuse. Difference.</p>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-bold mb-6 sm:mb-8">
+              Reason. Excuse. Difference.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
@@ -66,7 +68,7 @@ const Index = () => {
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl text-white">💥</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Difference About Today</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Difference Today</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 Celebrate what made today's effort unique and unstoppable.
               </p>
