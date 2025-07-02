@@ -9,7 +9,7 @@ const Index = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="space-y-4 sm:space-y-6">
             <div className="mx-auto w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-              <img src="/lovable-uploads/074A2EF1-E960-49A5-9250-FC6636AE8AFE.png" alt="RunPunchMan Logo - Train Daily. Live Boldly." className="w-full h-full drop-shadow-2xl object-cover" />
+              <img src="/lovable-uploads/636C1957-DCC2-40EE-9232-49D8B08B663E.png" alt="RunPunchMan Logo - Train Daily. Live Boldly." className="w-full h-full drop-shadow-2xl object-cover" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
               Day <span className="text-red-600 font-semibold">{Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}</span>
