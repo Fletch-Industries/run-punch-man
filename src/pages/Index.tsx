@@ -78,11 +78,12 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="flex justify-center">
-              <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
-                GET DAILY R.E.D.
-              </Link>
-            </div>
+          </div>
+          
+          <div className="flex justify-center mt-12">
+            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
+              GET DAILY R.E.D.
+            </Link>
           </div>
         </div>
       </section>
