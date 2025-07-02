@@ -41,13 +41,13 @@ const Index = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 px-4">
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-6 sm:mb-8">Know your Reason, Own your Excuse, & notice the Difference.</p>
+            <p className="text-lg text-gray-600 mb-6 sm:mb-8">Every day begins with a Reason, an Excuse, & a Difference.</p>
             <div className="w-24 h-1 bg-yellow-400 mx-auto mb-6 sm:mb-8"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
               <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">🏃‍♂️</span>
+                <span className="text-2xl text-white">👊</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Reason to Run</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
@@ -65,7 +65,7 @@ const Index = () => {
             </div>
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">⚡</span>
+                <span className="text-2xl text-white">💥</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Difference About Today</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">

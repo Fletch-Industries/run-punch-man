@@ -145,7 +145,7 @@ const Red = () => {
                       {entry.reason && (
                         <div className="mb-3">
                           <h4 className="text-xs font-semibold text-green-700 mb-1 flex items-center">
-                            🏃‍♂️ REASON TO RUN
+                            👊 REASON TO RUN
                           </h4>
                           <p className="text-sm text-gray-700 leading-tight">{entry.reason}</p>
                         </div>
@@ -163,7 +163,7 @@ const Red = () => {
                       {entry.difference && (
                         <div className="mb-3">
                           <h4 className="text-xs font-semibold text-blue-700 mb-1 flex items-center">
-                            ⚡ DIFFERENCE ABOUT TODAY
+                            💥 DIFFERENCE ABOUT TODAY
                           </h4>
                           <p className="text-sm text-gray-700 leading-tight">{entry.difference}</p>
                         </div>
@@ -172,7 +172,7 @@ const Red = () => {
                       {entry.quote && (
                         <div className="mb-3">
                           <h4 className="text-xs font-semibold text-gray-700 mb-1">
-                            😐 SAITAMA SAYS
+                            😐 RUN PUNCH MAN SAYS
                           </h4>
                           <p className="text-sm text-gray-800 italic leading-tight">"{entry.quote}"</p>
                         </div>
