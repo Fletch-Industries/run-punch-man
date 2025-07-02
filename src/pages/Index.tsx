@@ -13,10 +13,10 @@ const Index = () => {
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
               {/* Day <span className="text-red-600 font-semibold">{Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}</span> */}
-              Day {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
+              DAY {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-yellow-300 font-bold mb-6 sm:mb-8">
-              Every. Single. Day.
+              EVERY. SINGLE. DAY.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg">
@@ -42,31 +42,34 @@ const Index = () => {
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-bold mb-6 sm:mb-8">
-              Reason. Excuse. Difference.
+              <span className="text-red-600">👊 Reason</span>. <span className="text-white bg-black px-1 rounded">🚫 Excuse</span>. <span className="text-yellow-400">💥 Difference</span>.
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">✅</span>
+              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl text-white">👊</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Reason to Run</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 Find your purpose that drives you forward, no matter what.
               </p>
             </div>
+
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">🚫</span>
+              <div className="w-16 h-16 bg-white border-2 border-gray-300 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl text-black">🚫</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Excuse to Ignore</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 Identify the excuses trying to stop you, then crush them completely.
               </p>
             </div>
+
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">💥</span>
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl text-black">💥</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Difference Today</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
