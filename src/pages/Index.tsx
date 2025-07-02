@@ -14,7 +14,7 @@ const Index = () => {
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
               DAY {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
-            <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+            <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide mb-5">
               JOIN THE CLUB
             </a>
             <div className="flex justify-center space-x-6">
@@ -40,7 +40,7 @@ const Index = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-bold mb-6 sm:mb-8">
               <span className="text-red-600">Reason.</span> <span className="text-navy-900">Excuse.</span> <span className="text-yellow-400">Difference.</span>
             </p>
-            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-any-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
               GET DAILY R.E.D.
             </Link>
           </div>
