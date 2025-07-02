@@ -17,8 +17,8 @@ const Index = () => {
             <p className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8  text-yellow-300">
               EVERY. SINGLE. DAY.
             </p>
-            <div className="space-y-4 sm:space-y-6">
-              <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide block">
+            <div className="flex justify-center">
+              <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-navy-900 px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
                 JOIN THE CLUB
               </a>
             </div>
@@ -78,8 +78,8 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-              <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+            <div className="flex justify-center">
+              <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
                 GET DAILY R.E.D.
               </Link>
             </div>
@@ -127,8 +127,8 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-            <Link to="/training" className="bg-white hover:bg-gray-100 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+          <div className="flex justify-center">
+            <Link to="/training" className="bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
               BREAK YOUR LIMITS
             </Link>
           </div>
