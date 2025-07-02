@@ -15,8 +15,8 @@ const Index = () => {
               {/* Day <span className="text-red-600 font-semibold">{Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}</span> */}
               Day {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-yellow-900 max-w-3xl mx-auto leading-relaxed px-4">
-              I'm Just a guy who's a runner for fun.
+            <p className="text-lg sm:text-xl md:text-2xl text-yellow-300 max-w-3xl mx-auto leading-relaxed px-4">
+              Just a guy who's a runner for fun.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 shadow-lg">
