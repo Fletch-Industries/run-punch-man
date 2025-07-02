@@ -14,19 +14,13 @@ const Index = () => {
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
               DAY {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
-            <p className="text-lg sm:text-xl text-yellow-400 font-bold mb-6 sm:mb-8">
+            <p className="text-xl sm:text-xxl font-bold mb-6 sm:mb-8">
               EVERY. SINGLE. DAY.
             </p>
             <div className="space-y-4 sm:space-y-6">
               <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide block">
                 JOIN THE CLUB
               </a>
-              <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide block">
-                TODAY'S R.E.D.
-              </Link>
-              <Link to="/training" className="bg-white hover:bg-gray-100 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide block">
-                TRAIN WITHOUT LIMITS
-              </Link>
             </div>
             <div className="flex justify-center space-x-6">
               <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-pink-400 transition-colors">
@@ -48,8 +42,8 @@ const Index = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 px-4">
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-bold mb-6 sm:mb-8">
-              <span className="text-red-600">Reason.</span> <span className="text-navy-900">Excuse.</span> <span className="text-yellow-400">Difference.</span>
+            <p className="text-lg sm:text-xl md:text-2xl text-red-600 font-bold mb-6 sm:mb-8">
+              Reason. Excuse. Difference.
             </p>
           </div>
 
@@ -83,6 +77,12 @@ const Index = () => {
                 Celebrate what made today's effort unique and unstoppable.
               </p>
             </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+              GET DAILY R.E.D.
+            </Link>
+          </div>
           </div>
         </div>
       </section>
@@ -92,27 +92,17 @@ const Index = () => {
             Become Too Strong.
           </h2>
           <p className="text-lg sm:text-xl text-gray-200 mb-8 sm:mb-12 leading-relaxed">
-            Break through your limits. Every. Single. Day.
+            Run. Reps. Repeat.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">💪</span>
+                <span className="text-2xl text-white">🏃</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Unbreakable Mind</h3>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
                 Build mental strength that refuses to quit, no matter what.
-              </p>
-            </div>
-
-            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-black">⚡</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Simple Power</h3>
-              <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
-                Discover the strength that comes from relentless consistency.
               </p>
             </div>
 
@@ -125,18 +115,22 @@ const Index = () => {
                 Push past what you thought was possible. Become too strong.
               </p>
             </div>
+
+            <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl text-black">⚡</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Simple Power</h3>
+              <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
+                Discover the strength that comes from relentless consistency.
+              </p>
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              GET DAILY R.E.D.
-            </Link>
             <Link to="/training" className="bg-white hover:bg-gray-100 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              TRAIN WITHOUT LIMITS
+              BREAK YOUR LIMITS
             </Link>
-            <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              JOIN THE CLUB
-            </a>
           </div>
         </div>
       </section>
