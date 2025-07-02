@@ -14,11 +14,11 @@ const Index = () => {
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
               Day <span className="text-yellow-300">{Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}</span>
             </h1>
-            <p className="text-xl sm:text-xxl font-bold mb-6 sm:mb-8  text-yellow-300">
+            <p className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8  text-yellow-300">
               EVERY. SINGLE. DAY.
             </p>
             <div className="space-y-4 sm:space-y-6">
-              <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide block">
+              <a href="https://www.strava.com/clubs/run-punch-club" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 hover:bg-yellow-300 text-navy-900 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide block">
                 JOIN THE CLUB
               </a>
             </div>
@@ -37,8 +37,8 @@ const Index = () => {
         </div>
       </section>
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-4 sm:mb-6 px-4">
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
@@ -79,10 +79,10 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
-              GET DAILY R.E.D.
-            </Link>
-          </div>
+              <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide">
+                GET DAILY R.E.D.
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -100,9 +100,9 @@ const Index = () => {
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl text-white">🏃</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Unbreakable Mind</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Run a 5K+</h3>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
-                Build mental strength that refuses to quit, no matter what.
+                Run at least a 5K every single day, no matter what.
               </p>
             </div>
 
@@ -110,9 +110,9 @@ const Index = () => {
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl text-black">🥊</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Exceed Everything</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Do 100 Reps</h3>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
-                Push past what you thought was possible. Become too strong.
+                100 Sit-ups. 100 Push-ups. 100 squats. Get em' in.
               </p>
             </div>
 
@@ -120,7 +120,7 @@ const Index = () => {
               <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl text-black">⚡</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Simple Power</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Don't miss a Day.</h3>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
                 Discover the strength that comes from relentless consistency.
               </p>
