@@ -14,8 +14,8 @@ const Index = () => {
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
               DAY {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
-            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-all duration-200 transform hover:scale-105 tracking-wide mb-6 sm:mb-8 inline-block">
-              SEE TODAY'S R.E.D.
+            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-navy-900 px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-all duration-200 transform hover:scale-105 tracking-wide mb-6 sm:mb-8 inline-block">
+              GET TODAY'S R.E.D.
             </Link>
             <div className="flex justify-center space-x-6">
               <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-pink-400 transition-colors">
@@ -38,7 +38,7 @@ const Index = () => {
               What's Your <span className="text-red-600">R.E.D.</span>?
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-bold mb-6 sm:mb-8">
-              <span className="text-red-600">Reason</span>. <span className="text-navy-900">Excuse</span>. <span className="text-yellow-400">Difference</span>.
+              <span className="text-red-600">Reason.</span> <span className="text-navy-900">Excuse.</span> <span className="text-yellow-400">Difference.</span>
             </p>
           </div>
 
