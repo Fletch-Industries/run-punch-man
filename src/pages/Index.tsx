@@ -14,8 +14,8 @@ const Index = () => {
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-200 text-center mb-4">
               DAY {Math.ceil((new Date().getTime() - new Date("2023-07-31").getTime()) / (1000 * 60 * 60 * 24))}
             </h1>
-            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-sm sm:text-base transition-all duration-200 transform hover:scale-105 tracking-wide mb-6 sm:mb-8 inline-block">
-             GET TODAY'S R.E.D.
+            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl font-bold text-base sm:text-lg transition-all duration-200 transform hover:scale-105 tracking-wide mb-6 sm:mb-8 inline-block">
+              SEE TODAY'S R.E.D.
             </Link>
             <div className="flex justify-center space-x-6">
               <a href="https://www.instagram.com/run_punch_man/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-pink-400 transition-colors">
