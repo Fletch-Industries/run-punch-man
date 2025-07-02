@@ -8,12 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand Section */}
           <div className="text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
-              <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">@</span>
-              </div>
-              <span className="text-xl font-bold">RunPunchMan</span>
-            </div>
+            <h3 className="text-lg font-bold mb-4">@RunPunchMan</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Just a guy who's a runner for fun. 
             </p>
