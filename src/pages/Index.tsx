@@ -112,7 +112,7 @@ const Index = () => {
 
             <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-black">🏋️‍♂️</span>
+                <span className="text-2xl text-black">🏋️</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Do 100 Reps</h3>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
@@ -122,7 +122,7 @@ const Index = () => {
 
             <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-black">⛓️</span>
+                <span className="text-2xl text-black">📅</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Every Single Day</h3>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base">

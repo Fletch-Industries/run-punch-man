@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface RedEntry {
   date: string;
@@ -11,6 +13,67 @@ interface RedEntry {
   difference: string;
   quote: string;
 }
+
+const NewsletterSignup = () => {
+  const { toast } = useToast();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('newsletter-signup', {
+        body: { email }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Welcome to the R.E.D. Community!",
+        description: "You'll receive today's R.E.D. shortly, then daily R.E.D. at noon PST.",
+      });
+      setEmail("");
+    } catch (error: any) {
+      toast({
+        title: "Subscription Failed",
+        description: error.message || "Please try again or contact josephmeeko@gmail.com",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="bg-white p-6 rounded-xl max-w-md mx-auto">
+      <h3 className="text-xl font-bold text-navy-900 mb-4 text-center">Get the Daily R.E.D.</h3>
+      <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+          required
+        />
+        <button 
+          type="submit"
+          disabled={loading}
+          className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white py-3 rounded-lg font-bold transition-colors"
+        >
+          {loading ? 'Subscribing...' : 'Subscribe Now 👊'}
+        </button>
+      </form>
+      <p className="text-sm text-gray-500 mt-3 text-center">
+        Get daily R.E.D. delivered to your inbox at noon PST
+      </p>
+    </div>
+  );
+};
 
 const Red = () => {
   const [entries, setEntries] = useState<RedEntry[]>([]);
@@ -72,33 +135,11 @@ const Red = () => {
             Daily <span className="text-yellow-400">R.E.D.</span>
           </h1>
           <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
-            <strong>R</strong>eason to run, <strong>E</strong>xcuse to ignore, <strong>D</strong>ifference about today
-          </p>
-          <p className="text-lg text-gray-200 mt-6 mb-8 max-w-2xl mx-auto">
-            Every day I break through my limits. I share the reason that drives me forward, crush the excuse trying to stop me, and celebrate what made today unstoppable.
+            Every day I share my <strong>R</strong>eason to Run, my <strong>E</strong>xcuse to Ignore, and the <strong>D</strong>ifference about Today!
           </p>
           
           {/* Newsletter Signup */}
-          <div className="bg-white p-6 rounded-xl max-w-md mx-auto">
-            <h3 className="text-xl font-bold text-navy-900 mb-4 text-center">Get the Daily R.E.D.</h3>
-            <form className="space-y-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                required
-              />
-              <button 
-                type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold transition-colors"
-              >
-                Subscribe Now 👊
-              </button>
-            </form>
-            <p className="text-sm text-gray-500 mt-3 text-center">
-              Get daily R.E.D. delivered to your inbox at noon PST
-            </p>
-          </div>
+          <NewsletterSignup />
         </div>
       </section>
 

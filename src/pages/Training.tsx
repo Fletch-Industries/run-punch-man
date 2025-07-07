@@ -49,7 +49,7 @@ const Training = () => {
 
       toast({
         title: "Booking Request Sent!",
-        description: "I'll contact you within 24 hours to confirm your training session.",
+        description: "You'll receive a confirmation email shortly. I'll contact you within 24 hours to confirm your session.",
       });
 
       // Reset form
@@ -92,25 +92,42 @@ const Training = () => {
           <p className="text-xl text-gray-200 leading-relaxed mb-4">
             Break your limits. Become too strong. 
           </p>
-          <div className="bg-yellow-400 text-navy-900 px-8 py-4 rounded-lg font-bold text-xl inline-block">
-            Train Without Limits
-          </div>
         </div>
       </section>
 
-      {/* Training Philosophy */}
+      {/* What You Get */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-red-600 to-navy-900 rounded-xl shadow-lg p-8 text-white mb-12">
-            <h3 className="text-3xl font-bold mb-6 text-center">Breaking Your Limits</h3>
-            <p className="text-center text-lg leading-relaxed mb-6">
-              I'm just a guy who runs 5K every single day. No excuses, no days off. 
-              Like Saitama's training - simple, consistent, relentless. I'll help you build the mental strength 
-              to push past what you think is possible.
-            </p>
-            <div className="text-center">
+            <h2 className="text-3xl font-bold text-center mb-8">What You Get</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-navy-900 text-2xl">📅</span>
+                </div>
+                <h3 className="font-bold mb-2">707+ Day Streak</h3>
+                <p className="text-gray-200 text-sm">Learn from someone who hasn't missed a single day since summer 2023</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-navy-900 text-2xl">🧠</span>
+                </div>
+                <h3 className="font-bold mb-2">Mental Toughness</h3>
+                <p className="text-gray-200 text-sm">Master the psychology of never breaking a commitment to yourself</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-white text-2xl">💪</span>
+                </div>
+                <h3 className="font-bold mb-2">Unbreakable Habits</h3>
+                <p className="text-gray-200 text-sm">Build systems that work no matter what life throws at you</p>
+              </div>
+            </div>
+            <div className="text-center mt-8">
               <p className="text-yellow-400 font-bold mb-2">Virtual Sessions • 7+ Days Advance Booking</p>
-              <p className="text-sm text-gray-200">Come ready to exceed your limits</p>
+              <p className="text-sm text-gray-200">Personal training from someone who learned commitment the hard way</p>
             </div>
           </div>
 
@@ -226,35 +243,6 @@ const Training = () => {
               </form>
             </div>
 
-          {/* What You Get */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-navy-900 mb-6 text-center">What You Get</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl">💪</span>
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">Unbreakable Consistency</h3>
-                <p className="text-gray-600 text-sm">Learn the mental game of never missing a day</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-navy-900 text-2xl">🏃‍♂️</span>
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">500+ Day Streak</h3>
-                <p className="text-gray-600 text-sm">Training from someone who never takes a day off</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-navy-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl">⚡</span>
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">Break Your Limits</h3>
-                <p className="text-gray-600 text-sm">Push past what you thought was possible</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

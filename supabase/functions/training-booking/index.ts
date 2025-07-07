@@ -63,8 +63,39 @@ serve(async (req) => {
       )
     }
 
-    // Send email to Joseph
-    const emailResponse = await resend.emails.send({
+    // Send confirmation email to client
+    const clientEmailResponse = await resend.emails.send({
+      from: "RunPunchMan Training <onboarding@resend.dev>",
+      to: [email],
+      subject: `Training Session Request Received - ${preferredDate}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #dc2626;">Training Session Request Received!</h2>
+          <p>Hi ${name},</p>
+          <p>Thanks for booking a training session with Run Punch Man! Here are your details:</p>
+          
+          <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p><strong>Preferred Date:</strong> ${preferredDate}</p>
+            <p><strong>Preferred Time:</strong> ${preferredTime}</p>
+            <p><strong>Your Goals:</strong></p>
+            <p>${goals}</p>
+          </div>
+          
+          <p>I'll contact you within 24 hours to confirm your session details. Virtual sessions are conducted via video call.</p>
+          
+          <p>Looking forward to helping you build unbreakable habits!</p>
+          
+          <p>Keep running,<br>Run Punch Man</p>
+          
+          <div style="text-align: center; margin-top: 30px;">
+            <p><a href="https://www.instagram.com/run_punch_man/" style="color: #dc2626;">Follow @run_punch_man</a></p>
+          </div>
+        </div>
+      `,
+    })
+
+    // Send notification email to Joseph
+    const josephEmailResponse = await resend.emails.send({
       from: "RunPunchMan Training <onboarding@resend.dev>",
       to: ["josephmeeko@gmail.com"],
       subject: `New Training Session Request - ${name}`,
@@ -78,12 +109,12 @@ serve(async (req) => {
         <p><strong>Goals:</strong></p>
         <p>${goals}</p>
         <hr>
-        <p><strong>Rate:</strong> $40 for 30 minutes</p>
         <p><em>Please contact the client to confirm the session.</em></p>
       `,
     })
 
-    console.log("Training booking email sent:", emailResponse)
+    console.log("Client confirmation email sent:", clientEmailResponse)
+    console.log("Joseph notification email sent:", josephEmailResponse)
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,

@@ -25,23 +25,25 @@ const About = () => {
           <div className="prose prose-lg max-w-none">
             {/* Personal Photo and Intro */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gray-50 p-8 rounded-xl">
-                <h2 className="text-3xl font-bold text-navy-900 mb-6">My Story</h2>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  My name is Run Punch Man and I started running a 5K every single day including the workout 
-                  mid-summer of 2023. It began as a challenge with boys in my cabin as a youth counselor and 
-                  it never stopped for me. It's ingrained and I want to share this inspiration with others.
-                </p>
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Every day I post my R.E.D. and share inspiration to Strava, Instagram, Facebook, TikTok, 
-                  and other platforms. What started as a simple challenge has become an unbreakable daily habit.
-                </p>
-                <p className="text-gray-700 leading-relaxed">
-                  Juniper, my two-year-old rescued dog, runs every single 5K with me. She's known all over 
-                  Sweet Home, Oregon, and loves running every day just as much as I do. She never makes excuses 
-                  and always shows up ready to go.
-                </p>
-              </div>
+            <div className="bg-gray-50 p-8 rounded-xl">
+              <h2 className="text-3xl font-bold text-navy-900 mb-6">My Story</h2>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                My name is Run Punch Man, and I started running a 5K every single day, including the complete workout, 
+                in mid-summer of 2023. What began as a simple challenge with the boys in my cabin during my time as a 
+                youth counselor has transformed into something much deeper—an unbreakable daily habit that defines who I am.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Every single day, I document and share my R.E.D. (Reason to Run, Excuse to Ignore, Difference about Today) 
+                across Strava, Instagram, Facebook, TikTok, and other platforms. What started as accountability has evolved 
+                into inspiration for others to build their own unshakeable daily habits.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                My two-year-old rescued dog, Juniper, is my faithful running companion who joins me for every single 5K. 
+                She's become a beloved figure throughout Sweet Home, Oregon, known for her enthusiasm and unwavering 
+                commitment to our daily runs. Juniper never makes excuses and always shows up ready to go—she's taught 
+                me as much about consistency as I've learned on my own.
+              </p>
+            </div>
               <div className="flex items-center justify-center">
                 <img 
                   src="/lovable-uploads/499614dd-ccfd-4c27-9e22-bcb60676177e.png" 
@@ -54,7 +56,7 @@ const About = () => {
             <div className="text-center">
               <h2 className="text-3xl font-bold text-navy-900 mb-6">Join the Movement</h2>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                Follow along and be inspired to build your own unbreakable daily habits.
+                Follow along and build your own unbreakable daily habits.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -78,7 +80,7 @@ const About = () => {
               
               <div className="bg-yellow-400 p-6 rounded-xl inline-block">
                 <p className="text-navy-900 font-bold text-lg">
-                  "Success isn't about being perfect. It's about being consistent."
+                  "If we don't do it today, we won't do it tomorrow"
                 </p>
               </div>
             </div>
