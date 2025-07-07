@@ -62,7 +62,7 @@ const Red = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div id="top" className="min-h-screen bg-gray-50">
       <Navigation />
       
       {/* Hero Section */}

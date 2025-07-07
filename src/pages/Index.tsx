@@ -53,7 +53,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
               <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-white">👊</span>
+                <span className="text-2xl text-white">✅</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Reason to Run</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
@@ -73,7 +73,7 @@ const Index = () => {
 
             <div className="text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 mx-4 md:mx-0">
               <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-black">💥</span>
+                <span className="text-2xl text-black">☀️</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mb-4">Difference Today</h3>
               <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
@@ -84,7 +84,7 @@ const Index = () => {
           </div>
           
           <div className="flex justify-center mt-12">
-            <Link to="/red" className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
+            <Link to="/red#top" className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
               GET DAILY R.E.D.
             </Link>
           </div>
@@ -93,7 +93,7 @@ const Index = () => {
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-red-600 to-navy-900">
         <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-            Become Too Strong.
+            The Run Punch Routine
           </h2>
           <p className="text-lg sm:text-xl text-gray-200 mb-8 sm:mb-12 leading-relaxed">
             Run. Reps. Repeat.
@@ -112,7 +112,7 @@ const Index = () => {
 
             <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-black">🥊</span>
+                <span className="text-2xl text-black">🏋️‍♂️</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Do 100 Reps</h3>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
@@ -122,17 +122,17 @@ const Index = () => {
 
             <div className="text-center p-6 sm:p-8 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl text-black">⚡</span>
+                <span className="text-2xl text-black">⛓️</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Don't miss a Day.</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Every Single Day</h3>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base">
-                Discover the strength that comes from relentless consistency.
+                If we don't do it today, we won't do it tomorrow.
               </p>
             </div>
           </div>
 
           <div className="flex justify-center">
-            <Link to="/training" className="bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
+            <Link to="/training#top" className="bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-lg font-bold text-base transition-all duration-200 transform hover:scale-105 tracking-wide w-64 text-center">
               BREAK YOUR LIMITS
             </Link>
           </div>
