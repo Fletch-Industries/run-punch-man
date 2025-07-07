@@ -95,7 +95,6 @@ const Training = () => {
           <div className="bg-yellow-400 text-navy-900 px-8 py-4 rounded-lg font-bold text-xl inline-block">
             Train Without Limits
           </div>
-          <p className="text-sm text-gray-300 mt-4">$40 for 30 minutes</p>
         </div>
       </section>
 
