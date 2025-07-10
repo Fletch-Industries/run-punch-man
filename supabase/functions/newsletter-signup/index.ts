@@ -14,31 +14,50 @@ const corsHeaders = {
 }
 
 async function fetchLatestRED() {
-  const sheetId = "1-Nr9UZYxJdHatigpzEOp8wOR_aCfi-AJui-xcm6lqAc"
-  const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`
-  
-  const response = await fetch(csvUrl)
-  const csvText = await response.text()
-  const rows = csvText.split('\n').slice(5) // Start from row 6 (index 5)
-  
-  const parsedEntries = rows
-    .filter(row => row.trim() && !row.startsWith(',,,,,'))
-    .map(row => {
-      const columns = row.split(',').map(col => col.replace(/"/g, '').trim())
-      return {
-        date: columns[0] || '',
-        day: columns[1] || '',
-        reason: columns[2] || '',
-        excuse: columns[3] || '',
-        difference: columns[4] || '',
-        quote: columns[5] || ''
-      }
-    })
-    .filter(entry => entry.date && entry.day && entry.reason)
+  try {
+    const sheetId = "1-Nr9UZYxJdHatigpzEOp8wOR_aCfi-AJui-xcm6lqAc"
+    const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`
+    
+    console.log('Fetching Google Sheet data from:', csvUrl)
+    const response = await fetch(csvUrl)
+    
+    if (!response.ok) {
+      console.error('Google Sheets fetch failed:', response.status, response.statusText)
+      return null
+    }
+    
+    const csvText = await response.text()
+    console.log('CSV data length:', csvText.length)
+    
+    const rows = csvText.split('\n').slice(5) // Start from row 6 (index 5)
+    
+    const parsedEntries = rows
+      .filter(row => row.trim() && !row.startsWith(',,,,,'))
+      .map(row => {
+        const columns = row.split(',').map(col => col.replace(/"/g, '').trim())
+        return {
+          date: columns[0] || '',
+          day: columns[1] || '',
+          reason: columns[2] || '',
+          excuse: columns[3] || '',
+          difference: columns[4] || '',
+          quote: columns[5] || ''
+        }
+      })
+      .filter(entry => entry.date && entry.day && entry.reason)
 
-  // Get the most recent entry
-  const sortedEntries = parsedEntries.sort((a, b) => parseInt(b.day) - parseInt(a.day))
-  return sortedEntries[0]
+    console.log('Parsed entries count:', parsedEntries.length)
+
+    // Get the most recent entry
+    const sortedEntries = parsedEntries.sort((a, b) => parseInt(b.day) - parseInt(a.day))
+    const latestEntry = sortedEntries[0]
+    
+    console.log('Latest R.E.D. entry:', latestEntry)
+    return latestEntry
+  } catch (error) {
+    console.error('Error fetching Google Sheets data:', error)
+    return null
+  }
 }
 
 serve(async (req) => {
