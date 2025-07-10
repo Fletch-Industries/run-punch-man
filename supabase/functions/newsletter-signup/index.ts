@@ -68,8 +68,22 @@ serve(async (req) => {
   try {
     const { email } = await req.json()
 
-    console.log('Newsletter signup for:', email)
+    console.log('Newsletter signup attempt for:', email)
 
+    // Validate email format
+    if (!email || !email.includes('@')) {
+      console.error('Invalid email format:', email)
+      return new Response(
+        JSON.stringify({ error: 'Invalid email format' }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      )
+    }
+
+    console.log('Attempting database insert...')
+    
     // Store subscriber in database
     const { data, error } = await supabase
       .from('newsletter_subscribers')
@@ -77,9 +91,9 @@ serve(async (req) => {
       .select()
 
     if (error) {
-      console.error('Database error:', error)
+      console.error('Database error details:', error)
       return new Response(
-        JSON.stringify({ error: 'Failed to subscribe' }),
+        JSON.stringify({ error: 'Failed to subscribe to database', details: error.message }),
         {
           status: 500,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -87,7 +101,7 @@ serve(async (req) => {
       )
     }
 
-    console.log("Newsletter subscription successful:", data)
+    console.log("Database insertion successful:", data)
 
     // Get latest R.E.D. entry and send welcome email
     try {
