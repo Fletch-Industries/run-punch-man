@@ -80,14 +80,24 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    console.log('Submitting contact form with data:', formData);
+
     try {
       const { supabase } = await import("@/integrations/supabase/client");
-      const { error } = await supabase.functions.invoke('send-contact-email', {
+      console.log('Invoking send-contact-email function...');
+      
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
 
-      if (error) throw error;
+      console.log('Function response:', { data, error });
 
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(`Supabase error: ${error.message}`);
+      }
+
+      console.log('Email sent successfully');
       alert("Message sent successfully! I'll get back to you within 24-48 hours.");
       setFormData({
         name: "",
@@ -96,7 +106,9 @@ const Contact = () => {
         message: ""
       });
     } catch (error: any) {
-      alert("Failed to send message. Please try again or email me directly at josephmeeko@gmail.com");
+      console.error('Contact form submission error:', error);
+      const errorMessage = error.message || 'Unknown error occurred';
+      alert(`Failed to send message: ${errorMessage}. Please try again or email me directly at josephmeeko@gmail.com`);
     } finally {
       setLoading(false);
     }
