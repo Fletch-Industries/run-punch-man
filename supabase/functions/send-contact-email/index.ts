@@ -23,7 +23,7 @@ serve(async (req) => {
   try {
     const { name, email, subject, message }: ContactEmailRequest = await req.json()
 
-    console.log('Sending contact email:', { name, email, subject })
+    console.log('Processing contact email:', { name, email, subject })
 
     const emailResponse = await resend.emails.send({
       from: "RunPunchMan Contact <onboarding@resend.dev>",
