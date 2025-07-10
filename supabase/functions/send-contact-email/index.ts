@@ -41,7 +41,7 @@ serve(async (req) => {
       `,
     })
 
-    console.log("Contact email sent successfully:", emailResponse)
+    console.log("Contact email sent successfully to josephmeeko@gmail.com:", emailResponse)
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
