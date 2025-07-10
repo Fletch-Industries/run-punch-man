@@ -9,16 +9,11 @@ max_rows = 1000
 
 [auth]
 enabled = true
-port = 54324
 site_url = "http://localhost:3000"
 additional_redirect_urls = ["https://lovableproject.com"]
 jwt_expiry = 3600
 enable_signup = true
 enable_manual_linking = false
-
-[edge_functions]
-enabled = true
-port = 54323
 
 [functions.send-contact-email]
 verify_jwt = false
