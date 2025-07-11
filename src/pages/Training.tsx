@@ -37,6 +37,12 @@ const Training = () => {
       }));
       // Check availability for the selected date
       checkAvailability(dateString);
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        preferredDate: ""
+      }));
+      setBookedTimes([]);
     }
   };
 
@@ -98,6 +104,31 @@ const Training = () => {
     "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM",
     "6:00 PM", "7:00 PM", "8:00 PM"
   ];
+
+  const isTimeSlotAvailable = (time: string) => {
+    // If time is already booked, it's not available
+    if (bookedTimes.includes(time)) {
+      return false;
+    }
+
+    // If selected date is today, check if time has passed
+    if (selectedDate) {
+      const today = new Date();
+      const selectedDateString = selectedDate.toISOString().split('T')[0];
+      const todayString = today.toISOString().split('T')[0];
+      
+      if (selectedDateString === todayString) {
+        const currentHour = today.getHours();
+        const timeHour = parseInt(time.split(':')[0]);
+        const isPM = time.includes('PM');
+        const hour24 = isPM && timeHour !== 12 ? timeHour + 12 : (!isPM && timeHour === 12 ? 0 : timeHour);
+        
+        return hour24 > currentHour;
+      }
+    }
+    
+    return true;
+  };
 
   return (
     <div id="top" className="min-h-screen bg-gray-50">
@@ -231,15 +262,21 @@ const Training = () => {
                     required
                   >
                     <option value="">Select a time</option>
-                    {timeSlots.map(time => (
-                      <option 
-                        key={time} 
-                        value={time}
-                        disabled={bookedTimes.includes(time)}
-                      >
-                        {time} {bookedTimes.includes(time) ? '(Booked)' : ''}
-                      </option>
-                    ))}
+                    {timeSlots.map(time => {
+                      const isAvailable = isTimeSlotAvailable(time);
+                      const isBooked = bookedTimes.includes(time);
+                      const isPastTime = !isAvailable && !isBooked;
+                      
+                      return (
+                        <option 
+                          key={time} 
+                          value={time}
+                          disabled={!isAvailable}
+                        >
+                          {time} {isBooked ? '(Booked)' : isPastTime ? '(Past)' : ''}
+                        </option>
+                      );
+                    })}
                   </select>
                 </div>
 
