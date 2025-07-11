@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -17,6 +17,7 @@ const Training = () => {
   });
   const [selectedDate, setSelectedDate] = useState<Date>();
   const [loading, setLoading] = useState(false);
+  const [bookedTimes, setBookedTimes] = useState<string[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -29,10 +30,28 @@ const Training = () => {
   const handleDateSelect = (date: Date | undefined) => {
     setSelectedDate(date);
     if (date) {
+      const dateString = date.toISOString().split('T')[0];
       setFormData(prev => ({
         ...prev,
-        preferredDate: date.toISOString().split('T')[0]
+        preferredDate: dateString
       }));
+      // Check availability for the selected date
+      checkAvailability(dateString);
+    }
+  };
+
+  const checkAvailability = async (date: string) => {
+    try {
+      const { data, error } = await supabase.functions.invoke('check-booking-availability', {
+        body: { date }
+      });
+
+      if (error) throw error;
+      
+      setBookedTimes(data.bookedTimes || []);
+    } catch (error) {
+      console.error('Error checking availability:', error);
+      setBookedTimes([]);
     }
   };
 
@@ -48,8 +67,8 @@ const Training = () => {
       if (error) throw error;
 
       toast({
-        title: "Booking Request Sent!",
-        description: "You'll receive a confirmation email shortly. I'll contact you within 24 hours to confirm your session.",
+        title: "Training Session Confirmed!",
+        description: "Check your email for the Google Meet link and session details.",
       });
 
       // Reset form
@@ -62,6 +81,7 @@ const Training = () => {
         goals: ""
       });
       setSelectedDate(undefined);
+      setBookedTimes([]);
     } catch (error: any) {
       toast({
         title: "Error",
@@ -126,7 +146,7 @@ const Training = () => {
               </div>
             </div>
             <div className="text-center mt-8">
-              <p className="text-yellow-400 font-bold mb-2">Virtual Sessions • 7+ Days Advance Booking</p>
+              <p className="text-yellow-400 font-bold mb-2">Virtual Sessions • Immediate Booking Available</p>
               <p className="text-sm text-gray-200">Personal training from someone who learned commitment the hard way</p>
             </div>
           </div>
@@ -140,9 +160,9 @@ const Training = () => {
                 selected={selectedDate}
                 onSelect={handleDateSelect}
                 disabled={(date) => {
-                  const sevenDaysFromNow = new Date();
-                  sevenDaysFromNow.setDate(sevenDaysFromNow.getDate() + 7);
-                  return date < sevenDaysFromNow;
+                  const today = new Date();
+                  today.setHours(0, 0, 0, 0);
+                  return date < today;
                 }}
                 className="rounded-md border border-gray-300 p-3"
               />
@@ -212,7 +232,13 @@ const Training = () => {
                   >
                     <option value="">Select a time</option>
                     {timeSlots.map(time => (
-                      <option key={time} value={time}>{time}</option>
+                      <option 
+                        key={time} 
+                        value={time}
+                        disabled={bookedTimes.includes(time)}
+                      >
+                        {time} {bookedTimes.includes(time) ? '(Booked)' : ''}
+                      </option>
                     ))}
                   </select>
                 </div>

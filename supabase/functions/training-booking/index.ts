@@ -23,14 +23,31 @@ serve(async (req) => {
 
     console.log('Training booking request:', { name, email, preferredDate, preferredTime })
 
-    // Check if booking is at least 7 days in advance
-    const bookingDate = new Date(preferredDate)
-    const today = new Date()
-    const sevenDaysFromNow = new Date(today.getTime() + (7 * 24 * 60 * 60 * 1000))
+    // Check if this time slot is already booked
+    const bookingDateTime = `${preferredDate} ${preferredTime}`
+    console.log('Checking availability for:', bookingDateTime)
 
-    if (bookingDate < sevenDaysFromNow) {
+    const { data: existingBookings, error: checkError } = await supabase
+      .from('training_bookings')
+      .select('*')
+      .eq('preferred_date', preferredDate)
+      .eq('preferred_time', preferredTime)
+      .neq('status', 'cancelled')
+
+    if (checkError) {
+      console.error('Error checking existing bookings:', checkError)
       return new Response(
-        JSON.stringify({ error: 'Bookings must be made at least 7 days in advance' }),
+        JSON.stringify({ error: 'Failed to check availability' }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      )
+    }
+
+    if (existingBookings && existingBookings.length > 0) {
+      return new Response(
+        JSON.stringify({ error: 'This time slot is already booked. Please select a different time.' }),
         {
           status: 400,
           headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -67,23 +84,29 @@ serve(async (req) => {
     const clientEmailResponse = await resend.emails.send({
       from: "RunPunchMan Training <onboarding@resend.dev>",
       to: [email],
-      subject: `Training Session Request Received - ${preferredDate}`,
+      subject: `Training Session Confirmed - ${preferredDate} at ${preferredTime}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #dc2626;">Training Session Request Received!</h2>
+          <h2 style="color: #dc2626;">Training Session Confirmed!</h2>
           <p>Hi ${name},</p>
-          <p>Thanks for booking a training session with Run Punch Man! Here are your details:</p>
+          <p>Your training session with Run Punch Man has been confirmed! Here are your session details:</p>
           
           <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Preferred Date:</strong> ${preferredDate}</p>
-            <p><strong>Preferred Time:</strong> ${preferredTime}</p>
+            <p><strong>Date:</strong> ${preferredDate}</p>
+            <p><strong>Time:</strong> ${preferredTime} PST</p>
+            <p><strong>Meeting Link:</strong> <a href="https://meet.google.com/zwb-dcpq-gdq" style="color: #dc2626; font-weight: bold;">Join Google Meet</a></p>
             <p><strong>Your Goals:</strong></p>
             <p>${goals}</p>
           </div>
           
-          <p>I'll contact you within 24 hours to confirm your session details. Virtual sessions are conducted via video call.</p>
+          <div style="background: #dc2626; color: white; padding: 15px; border-radius: 8px; margin: 20px 0;">
+            <h3 style="margin: 0 0 10px 0;">Important Session Information:</h3>
+            <p style="margin: 5px 0;">📅 Add this to your calendar</p>
+            <p style="margin: 5px 0;">💻 Join via: <strong>https://meet.google.com/zwb-dcpq-gdq</strong></p>
+            <p style="margin: 5px 0;">📱 Have your phone ready for backup connection</p>
+          </div>
           
-          <p>Looking forward to helping you build unbreakable habits!</p>
+          <p>I'm excited to help you build unbreakable habits and break your limits!</p>
           
           <p>Keep running,<br>Run Punch Man</p>
           
@@ -98,18 +121,25 @@ serve(async (req) => {
     const josephEmailResponse = await resend.emails.send({
       from: "RunPunchMan Training <onboarding@resend.dev>",
       to: ["josephmeeko@gmail.com"],
-      subject: `New Training Session Request - ${name}`,
+      subject: `Training Session Booked - ${name} on ${preferredDate}`,
       html: `
-        <h2>New Training Session Booking Request</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Preferred Date:</strong> ${preferredDate}</p>
-        <p><strong>Preferred Time:</strong> ${preferredTime}</p>
-        <p><strong>Goals:</strong></p>
-        <p>${goals}</p>
-        <hr>
-        <p><em>Please contact the client to confirm the session.</em></p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #dc2626;">New Training Session Booked!</h2>
+          <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p><strong>Client:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+            <p><strong>Date:</strong> ${preferredDate}</p>
+            <p><strong>Time:</strong> ${preferredTime} PST</p>
+            <p><strong>Meeting Link:</strong> <a href="https://meet.google.com/zwb-dcpq-gdq" style="color: #dc2626;">https://meet.google.com/zwb-dcpq-gdq</a></p>
+          </div>
+          <div style="background: #fff; border-left: 4px solid #dc2626; padding: 15px;">
+            <p><strong>Client Goals:</strong></p>
+            <p>${goals}</p>
+          </div>
+          <hr style="margin: 30px 0;">
+          <p style="color: #666;"><em>Session automatically confirmed and client notified with meeting details.</em></p>
+        </div>
       `,
     })
 
